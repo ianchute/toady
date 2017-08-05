@@ -30,7 +30,7 @@ toady(X, y)
 
 ### Example with point labels
 
-Below map 7 features of the <a href="https://www.kaggle.com/mylesoneill/world-university-rankings">world's top universities</a> onto 2d space and coloring the points based on it's score. We also add a label for each point:
+Below we map 7 features of the <a href="https://www.kaggle.com/mylesoneill/world-university-rankings">world's top universities</a> onto 2d space and coloring the points based on it's score. We also add a label for each point:
 
 ```python
 data = pd.read_csv('cwurData.csv')
