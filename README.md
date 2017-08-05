@@ -11,7 +11,7 @@ pip install toady
 
 ### Basic Usage
 
-Below is a very simple example using the Iris dataset.
+Below is a very simple example using the <a href="https://www.kaggle.com/c/titanic">Iris dataset</a>.
 
 ```python 
 import pandas as pd
@@ -30,7 +30,7 @@ toady(X, y)
 
 ### Example with point labels
 
-Below map 7 features of the world's top universities onto 2d space and coloring the points based on it's score. We also add a label for each point:
+Below map 7 features of the <a href="https://www.kaggle.com/mylesoneill/world-university-rankings">world's top universities</a> onto 2d space and coloring the points based on it's score. We also add a label for each point:
 
 ```python
 data = pd.read_csv('cwurData.csv')
@@ -55,6 +55,12 @@ toady(X, y, labels)
 In this embedding, the *very top* schools in the world (e.g. Harvard, Princeton, etc.) are actually near each other in our embedding (hover on points to reveal labels):
 
 <img src="https://image.ibb.co/eWjrZv/sample1.png" height="400">
+
+### Customizability
+
+Other parameters such as the embedding model used, the scaling model used, etc. may be adjusted.
+
+Refer to the parameter list below for more information on adjusting these parameters.
 
 ### Parameters
 
