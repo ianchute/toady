@@ -99,9 +99,9 @@ def toady(X, y, point_labels=[], \
         CSS string for tooltips.
     verbose : { bool }, default False
         Whether or not informative messages are shown at each step of the toady process."""
-    if isinstance(X, pd.DataFrame):
+    if not isinstance(X, pd.DataFrame):
         raise Exception('X must be a Pandas DataFrame (pd.DataFrame)!')
-    if isinstance(y, pd.Series):
+    if not isinstance(y, pd.Series):
         raise Exception('y must be a Pandas Series (pd.Series)!')
     if point_labels is not None \
         and not (isinstance(point_labels, type) and all(map(lambda label: isinstance(label, type) is str, point_labels))):
@@ -112,9 +112,9 @@ def toady(X, y, point_labels=[], \
     _params = [impute_params, scale_params, embed_params]
     if not all(map(lambda p: isinstance(p, type), _params)):
         raise Exception('All params must be dicts!')
-    if isinstance(css, str):
+    if not isinstance(css, str):
         raise Exception('css must be a string!')
-    if isinstance(verbose, bool):
+    if not isinstance(verbose, bool):
         raise Exception('verbose must be a bool!')
 
     embed_params['n_components'] = 2 # This is always 2 for now.
