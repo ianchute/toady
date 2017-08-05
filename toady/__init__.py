@@ -1,1 +1,1 @@
-import toady
+from toady import toady
