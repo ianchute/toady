@@ -99,21 +99,22 @@ def toady(X, y, point_labels=[], \
         CSS string for tooltips.
     verbose : { bool }, default False
         Whether or not informative messages are shown at each step of the toady process."""
-    if type(X) != pd.DataFrame:
+    if isinstance(X, pd.DataFrame):
         raise Exception('X must be a Pandas DataFrame (pd.DataFrame)!')
-    if type(y) != pd.Series:
+    if isinstance(y, pd.Series):
         raise Exception('y must be a Pandas Series (pd.Series)!')
-    if point_labels is not None and not (type(point_labels) == list and all(map(lambda label: type(label) is str, point_labels))):
+    if point_labels is not None \
+        and not (isinstance(point_labels, type) and all(map(lambda label: isinstance(label, type) is str, point_labels))):
         raise Exception('point_labels must be a list of strings or None!')
     _models = [impute_model, scale_model, embed_model]
-    if not all(map(lambda model: type(model) is type, _models)):
+    if not all(map(lambda model: isinstance(model, type), _models)):
         raise Exception('All models must be types!')
     _params = [impute_params, scale_params, embed_params]
-    if not all(map(lambda p: type(p) is dict, _params)):
+    if not all(map(lambda p: isinstance(p, type), _params)):
         raise Exception('All params must be dicts!')
-    if type(css) is not str:
+    if isinstance(css, str):
         raise Exception('css must be a string!')
-    if type(verbose) is not bool:
+    if isinstance(verbose, bool):
         raise Exception('verbose must be a bool!')
 
     embed_params['n_components'] = 2 # This is always 2 for now.
