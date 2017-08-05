@@ -104,7 +104,7 @@ def toady(X, y, point_labels=[], \
     if not isinstance(y, pd.Series):
         raise Exception('y must be a Pandas Series (pd.Series)!')
     if point_labels is not None \
-        and not (isinstance(point_labels, type) and all(map(lambda label: isinstance(label, type) is str, point_labels))):
+        and not (isinstance(point_labels, type) and all(map(lambda label: isinstance(label, str), point_labels))):
         raise Exception('point_labels must be a list of strings or None!')
     _models = [impute_model, scale_model, embed_model]
     if not all(map(lambda model: isinstance(model, type), _models)):
