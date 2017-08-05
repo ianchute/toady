@@ -26,7 +26,7 @@ y = data['Species']
 toady(X, y)
 ```
 
-<img src="https://image.ibb.co/gCwYga/sample0.png">
+<img src="https://image.ibb.co/gCwYga/sample0.png" height="400">
 
 ### Example with point labels
 
@@ -54,7 +54,7 @@ toady(X, y, labels)
 
 In this embedding, the *very top* schools in the world (e.g. Harvard, Princeton, etc.) are actually near each other in our embedding (hover on points to reveal labels):
 
-<img src="https://image.ibb.co/eWjrZv/sample1.png">
+<img src="https://image.ibb.co/eWjrZv/sample1.png" height="400">
 
 ### Parameters
 
