@@ -18,6 +18,11 @@ text.mpld3-text, div.mpld3-tooltip {
 """
 
 def _to_numpy(X):
+    categorical_cols = X.dtypes[X.dtypes == 'object'].keys()
+    for col in categorical_cols:
+        encoded = pd.get_dummies(X[col], prefix=col)
+        X = X.drop(col, axis=1)
+        X = pd.concat([X, encoded], axis=1)
     return X.values.astype(np.float64)
 
 def _apply_model(X, model_f, params):
