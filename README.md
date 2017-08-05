@@ -1,6 +1,6 @@
 # toady
 
-## Easily visualize high-dimensional data in 2d space.
+### Easily visualize high-dimensional data in 2d space.
 
 <img src="https://image.ibb.co/jp1PMa/common_toad_2382962_640.jpg"/>
 
