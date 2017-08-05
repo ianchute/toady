@@ -3,8 +3,6 @@
 ### Easily visualize high-dimensional data in 2d space.
 
 <img src="https://image.ibb.co/jp1PMa/common_toad_2382962_640.jpg"/>
-<img src="https://image.ibb.co/gCwYga/sample0.png" height="144" style="float: left">
-<img src="https://image.ibb.co/eWjrZv/sample1.png" height="144" style="float: right">
 
 ### Installation
 ```bash
