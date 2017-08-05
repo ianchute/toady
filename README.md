@@ -4,6 +4,11 @@
 
 <img src="https://image.ibb.co/jp1PMa/common_toad_2382962_640.jpg"/>
 
+### Installation
+```bash
+pip install toady
+```
+
 ### Basic Usage
 
 Below is a very simple example using the Iris dataset.
