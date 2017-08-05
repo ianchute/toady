@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import mpld3
 
-from sklearn.preprocessing import MinMaxScaler, Imputer
+from sklearn.preprocessing import RobustScaler, Imputer
 from sklearn.manifold import Isomap
 
 DEFAULT_CSS = """
@@ -29,10 +29,19 @@ def _apply_model(X, model_f, params):
 
 def _scatter_plot(X, y, point_labels, scatter_params, css):
     X = pd.DataFrame(X, columns=['x','y'])
+    fig, ax = plt.subplots(figsize=(8,8))
 
-    fig, ax = plt.subplots(figsize=(12,10))
-    colors, classes = y.factorize()
-    
+    if 'figsize' in scatter_params:
+        fig, ax = plt.subplots(figsize=scatter_params['figsize'])
+        del scatter_params['figsize']
+
+    colors, classes = None, None
+
+    if y.dtype == 'object':
+        colors, classes = y.factorize()
+    else:
+        colors = y
+
     scatter = ax.scatter(
         x=X['x'], 
         y=X['y'],
@@ -51,7 +60,7 @@ def _scatter_plot(X, y, point_labels, scatter_params, css):
 
 def toady(X, y, point_labels=[], \
     impute_model=Imputer, impute_params={}, \
-    scale_model=MinMaxScaler, scale_params={}, \
+    scale_model=RobustScaler, scale_params={}, \
     embed_model=Isomap, embed_params={ 'n_jobs': -1 }, \
     scatter_params={}, css=DEFAULT_CSS, \
     verbose=False \
@@ -71,7 +80,7 @@ def toady(X, y, point_labels=[], \
         Model used for imputing missing values in the data. 
     impute_params : { dict }, default empty dict
         Params fed to impute_model.
-    scale_model : { type }, default 'sklearn.preprocessing.MinMaxScaler'
+    scale_model : { type }, default 'sklearn.preprocessing.RobustScaler'
         Model used for scaling the data.
     scale_params : { dict }, default empty dict
         Params fed to scale_params.
